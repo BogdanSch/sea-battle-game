@@ -1,0 +1,90 @@
+// General - Start
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+$accent: #1022ee;
+$white: #fff;
+$gold: gold;
+$gray: gray;
+$red: #ed1a1a;
+$green: #72ed1a;
+$pink: pink;
+
+.wrapper {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  color: $accent;
+  text-align: center;
+  font-weight: 700;
+}
+//General - End
+//Game - Start
+.game {
+  &__options {
+    display: flex;
+    width: 500px;
+    height: 100px;
+    background-color: $gold;
+    padding: 20px;
+    margin: 28px auto;
+    align-items: center;
+    gap: 10px;
+  }
+  &__boards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__board {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    .block {
+      width: 20px;
+      height: 20px;
+      border: dotted $gray 1px;
+    }
+  }
+  &__setup-buttons {
+    text-align: center;
+  }
+  .ship {
+    display: flex;
+  }
+  .deck {
+    width: 20px;
+    height: 20px;
+    border: dotted $gray 1px;
+  }
+  .deck-one {
+    background-color: $red;
+  }
+
+  .deck-three {
+    background-color: $green;
+  }
+
+  .hover {
+    background-color: $gold;
+  }
+
+  .empty {
+    background-color: $white !important;
+  }
+
+  .boom {
+    background-image: url(../images/Cross.png) !important;
+    background-size: cover;
+  }
+
+  #computer .block {
+    background-color: $pink;
+  }
+}
+//Game - End

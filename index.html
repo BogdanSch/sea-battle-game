@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Battle Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="game">
+            <div class="container">
+                <div class="game__wrap">
+                    <h1>Sea Battle Game</h1>
+                    <div id="game-info" class="game__info">
+                        <p>Turn: <span id="turn"></span></p>
+                        <p>Info: <span id="info"></span></p>
+                    </div>
+                    <div id="game-boards" class="game__boards"></div>
+                    <div id="game-options" class="game__options">
+                        <div id="ship-0" class="ship deck-one" draggable="true">
+                            <div id="deck-one-0" class="deck"></div>
+                        </div>
+                        <div id="ship-1" class="ship deck-one" draggable="true">
+                            <div id="deck-one-10" class="deck"></div>
+                        </div>
+                        <div id="ship-2" class="ship deck-three" draggable="true">
+                            <div id="deck-three-20" class="deck"></div>
+                            <div id="deck-three-21" class="deck"></div>
+                            <div id="deck-three-22" class="deck"></div>
+                        </div>
+                        <div id="ship-3" class="ship deck-three" draggable="true">
+                            <div id="deck-three-30" class="deck"></div>
+                            <div id="deck-three-31" class="deck"></div>
+                            <div id="deck-three-32" class="deck"></div>
+                        </div>
+                    </div>
+                    <div class="game__setup-buttons align-center" id="setup-buttons">
+                        <button id="startButton" class="waves-effect waves-light btn">Start Game</button>
+                        <button id="rotateButton" class="waves-effect waves-light btn">Rotate Your Ships</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>
