@@ -2,7 +2,7 @@ import { Board } from "./board.js";
 import { Player } from "./player.js";
 
 export class Game {
-  constructor(gameOptionsContainer) {
+  constructor(gameOptionsContainer, sendGameMessage) {
     this.width = 10;
     this.angle = 0;
     this.gameOver = false;
@@ -17,6 +17,7 @@ export class Game {
     this.notDropped = false;
 
     this.gameOptionsContainer = gameOptionsContainer;
+    this.sendGameMessage = sendGameMessage;
 
     this.players = [
       new Player("human", new Board("human", this.width)),
@@ -26,24 +27,24 @@ export class Game {
   }
 
   initializeGame() {
-    this.players.forEach((player) => {
-      player.board.createBoard();
-      player.board.createBlocks();
-    });
-
     if (this.gameOptionsContainer.children.length != 0) {
-      info.innerHTML = "Place all your ships please!";
+      this.sendGameMessage("Place all your ships, please!", "No one's turn");
+
+      this.players.forEach((player) => {
+        player.board.createBoard();
+        player.board.createBlocks();
+      });
+      this.players[0].board.generateChoiceShips();
+      return;
     } else {
-      info.innerHTML = "This's where the fun begins!";
-
-      const allBoardBlocks = document.querySelectorAll("#computer div");
-      allBoardBlocks.forEach((block) =>
-        block.addEventListener("click", handleClick)
-      );
+      this.sendGameMessage("This is where the fun begins!", "No one's turn");
+      // const allBoardBlocks = document.querySelectorAll("#computer div");
+      // allBoardBlocks.forEach((block) =>
+      //   block.addEventListener("click", handleClick)
+      // );
     }
-    this.currentPlayer = this.players[0];
 
-    turn.textContent = "You Go!";
-    info.textContent = "The game has started!";
+    this.currentPlayer = this.players[0];
+    this.sendGameMessage("The game has started!", "Your turn now!");
   }
 }

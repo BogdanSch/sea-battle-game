@@ -4,6 +4,6 @@ export class Player {
     this.board = board;
   }
   toString() {
-    return `${this.player}`;
+    return `${this.name}`;
   }
 }

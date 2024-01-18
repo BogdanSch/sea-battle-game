@@ -293,19 +293,26 @@ import { Game } from "./battleship-game.js";
 
 const gameOptionsContainer = document.querySelector("#game-options");
 const gameBoardsContainer = document.querySelector("#game-boards");
-const turn = document.querySelector("#turn");
-const info = document.querySelector("#info");
+const turnInfoLabel = document.querySelector("#turn");
+const gameInfoLabel = document.querySelector("#info");
 
 const startGameButton = document.querySelector("#startButton");
 const rotateButton = document.querySelector("#rotateButton");
 
-let game = new Game(gameOptionsContainer);
+let game = new Game(gameOptionsContainer, sendGameMessage);
 game.initializeGame();
 
+function sendGameMessage(gameInfo = "", turnInfo = "") {
+  turnInfoLabel.innerHTML = turnInfo;
+  gameInfoLabel.innerHTML = gameInfo;
+}
+
 rotateButton.addEventListener("click", () =>
-  game.humanBoard.rotatePlayerShips()
+  game?.players[0].board.rotatePlayerShips()
 );
+
 startGameButton.addEventListener("click", () => {
-  game = new Game(gameOptionsContainer);
+  gameBoardsContainer.innerHTML = "";
+  game = new Game(gameOptionsContainer, sendGameMessage);
   game.initializeGame();
 });
